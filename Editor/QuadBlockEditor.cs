@@ -1,4 +1,4 @@
-﻿using System;
+﻿#if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -39,3 +39,4 @@ public class QuadBlockEditor : Editor
         MatColSettings.style.display = val.Equals(StructureCollidersMode.MaterialUniqueBoxes) ? DisplayStyle.Flex : DisplayStyle.None;
     }
 }
+#endif
