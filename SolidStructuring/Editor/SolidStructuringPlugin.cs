@@ -414,6 +414,8 @@ public static class SolidStructuringPlugin
             instance.transform.SetParent(Selection.activeTransform, false);
         instance.name = "QuadBlock";
         instance.transform.rotation = Quaternion.identity;
+
+        if (SolidStructuringPlugin.CurEditorCamera != null)
         instance.transform.position = SolidStructuringPlugin.CurEditorCamera.transform.position + SolidStructuringPlugin.CurEditorCamera.transform.forward * 4f;
 
         Undo.RegisterCreatedObjectUndo(instance, "Create " + instance.name);
@@ -429,6 +431,8 @@ public static class SolidStructuringPlugin
             instance.transform.SetParent(Selection.activeTransform, false);
         instance.name = "StructureBox";
         instance.transform.rotation = Quaternion.identity;
+
+        if (SolidStructuringPlugin.CurEditorCamera != null)
         instance.transform.position = SolidStructuringPlugin.CurEditorCamera.transform.position + SolidStructuringPlugin.CurEditorCamera.transform.forward * 4f;
 
         Undo.RegisterCreatedObjectUndo(instance, "Create " + instance.name);
