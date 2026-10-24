@@ -1,4 +1,4 @@
-Shader "Unlit/SolidStructuring/QuadBlock"
+Shader "Unlit/SolidStructuring/FallBack/QuadBlock"
 {
     Properties
     {

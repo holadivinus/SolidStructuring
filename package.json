@@ -1,6 +1,6 @@
 {
     "name": "com.holadivinus.solidstructuring",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "displayName": "Solid Structuring",
     "description": "Unity Mapping tool that Auto-Handles Colliders, Meshing, UVs, Materials & Light Probes.",
     "unity": "2021.3",

@@ -1,4 +1,4 @@
-Shader "Unlit/SolidStructuring/FadedBg"
+Shader "Unlit/SolidStructuring/FallBack/FadedBg"
 {
     Properties
     {

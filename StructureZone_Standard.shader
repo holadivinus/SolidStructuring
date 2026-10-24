@@ -1,4 +1,4 @@
-Shader "Unlit/SolidStructuring/StructureZone"
+Shader "Unlit/SolidStructuring/FallBack/StructureZone"
 {
     Properties
     {

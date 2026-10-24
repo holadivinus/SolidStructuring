@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Hover
-  m_Shader: {fileID: 4800000, guid: 7e4e25d0eb4597a469565275af896a19, type: 3}
+  m_Shader: {fileID: 4800000, guid: f3fd6e3261abe8f4a9f0f75e5a773327, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _SHOWACCESSORS_ON
@@ -57,6 +57,18 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints:
     - _HoverEdge: 0
     - _ShowAccessors: 1
@@ -65,7 +77,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _EdgeSpan: 0.32706332
+    - _EdgeSpan: 0.25243282
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -73,6 +85,8 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _QueueControl: -1
+    - _QueueOffset: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -85,7 +99,7 @@ Material:
     - _EdgeDragColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HoverDragColor: {r: 0, g: 1, b: 0.9604409, a: 1}
-    - _MouseUV: {r: 4.0592747, g: 0.29808044, b: 0, a: 0}
+    - _MouseUV: {r: 12.354817, g: 7.9800873, b: 0, a: 0}
     - _Tint: {r: 1, g: 0.9791667, b: 0, a: 1}
     - _UVAdjust: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
