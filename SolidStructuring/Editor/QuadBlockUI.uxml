@@ -1,0 +1,34 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement name="StructureBoxUI" style="display: flex;">
+        <ui:Label text="Structure Box" display-tooltip-when-elided="true" style="-unity-text-align: upper-center; font-size: 24px;" />
+        <ui:VisualElement>
+            <ui:Label text="Quad Blocks" display-tooltip-when-elided="true" style="-unity-font-style: bold; font-size: 16px;" />
+            <uie:FloatField label="Pose/Size Snapping" value="0" binding-path="FORCEDStructureGridSnapping" />
+            <uie:ObjectField label="Quad Block Holder" type="UnityEngine.Transform, UnityEngine.CoreModule" binding-path="QuadBlockHolder" />
+        </ui:VisualElement>
+        <ui:VisualElement style="height: 10px;" />
+        <ui:VisualElement>
+            <ui:Label text="Box Colliders" display-tooltip-when-elided="true" style="-unity-font-style: bold; font-size: 16px;" />
+            <uie:EnumField label="Collision Mode" value="None" type="StructureCollidersMode, SolidStructuring" binding-path="CollidersMode" name="MatColChoice" />
+            <ui:VisualElement name="MatColSettings">
+                <ui:Slider picking-mode="Ignore" label="Material Collider Edge Overlap %" value="0" high-value="1" show-input-field="true" binding-path="MaterialColliderPercent" />
+                <uie:FloatField label="Material Collider Edge Overlap Max" value="0" binding-path="MaterialColliderOverlapMax" />
+            </ui:VisualElement>
+            <uie:ObjectField label="Box Collider Holder" type="UnityEngine.Transform, UnityEngine.CoreModule" binding-path="BoxColliderHolder" />
+        </ui:VisualElement>
+        <ui:VisualElement style="height: 10px;" />
+        <ui:VisualElement>
+            <ui:Label text="Lighting" display-tooltip-when-elided="true" style="-unity-font-style: bold; font-size: 16px;" />
+            <ui:Slider picking-mode="Ignore" label="Light Probe Merging" value="3" high-value="10" show-input-field="true" direction="Horizontal" binding-path="LightProbeCombineDist" />
+            <uie:ObjectField label="Light Probe Group" type="UnityEngine.LightProbeGroup, UnityEngine.CoreModule" binding-path="AutoGenLightProbeGroup" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="QuadBlockUI">
+        <ui:VisualElement style="flex-direction: row;">
+            <ui:Toggle focusable="false" value="false" picking-mode="Ignore" binding-path="NoCollision" />
+            <ui:VisualElement style="width: 22px;" />
+            <ui:Button text="Toggle No Collision" display-tooltip-when-elided="true" name="ColToggle" />
+        </ui:VisualElement>
+        <ui:VisualElement style="position: absolute; width: 25px; height: 25px;" />
+    </ui:VisualElement>
+</ui:UXML>
