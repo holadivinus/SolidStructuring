@@ -19,4 +19,8 @@ Shift + C will toggle if a QuadBlock has collision
 Set a Light Probe Group to auto-generate some "good enough" light probes.
 Supports Lightmapping, Yipee!
 
+
+Install via Window -> Package Manager -> Top Left "+" -> Add Package From Git URL  
+-> Paste https://github.com/holadivinus/SolidStructuring.git -> Enter  
+  
 (FYI, Only tested w/ Unity 2021.3.16f1)
