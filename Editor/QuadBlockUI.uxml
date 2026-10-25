@@ -4,7 +4,7 @@
         <ui:VisualElement>
             <ui:Label text="Quad Blocks" display-tooltip-when-elided="true" style="-unity-font-style: bold; font-size: 16px;" />
             <uie:FloatField label="Pose/Size Snapping" value="0" binding-path="FORCEDStructureGridSnapping" />
-            <uie:ObjectField label="Quad Block Holder" type="UnityEngine.Transform, UnityEngine.CoreModule" binding-path="QuadBlockHolder" />
+            <uie:ObjectField label="Quad Block Holder" type="UnityEngine.Transform, UnityEngine.CoreModule" binding-path="QuadBlockHolder" style="display: none;" />
         </ui:VisualElement>
         <ui:VisualElement style="height: 10px;" />
         <ui:VisualElement>

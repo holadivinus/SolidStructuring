@@ -720,9 +720,9 @@ public class QuadBlock : MonoBehaviour
                     }
                 }
             }
-            foreach (var l in UnityEngine.Object.FindObjectsOfType<Light>())
-                if (l != null && l.lightmapBakeType == LightmapBakeType.Baked && ContainsPoint(l.transform.position))
-                    probeOut.Add(AutoGenLightProbeGroup.transform.InverseTransformPoint(l.transform.position));
+            //foreach (var l in UnityEngine.Object.FindObjectsOfType<Light>())
+            //    if (l != null && l.lightmapBakeType == LightmapBakeType.Baked && ContainsPoint(l.transform.position))
+            //        probeOut.Add(AutoGenLightProbeGroup.transform.InverseTransformPoint(l.transform.position));
 
             List<Vector3> finProbes = new();
             // merge
