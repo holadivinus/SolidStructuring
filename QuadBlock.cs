@@ -557,6 +557,36 @@ public class QuadBlock : MonoBehaviour
 
                     BoxCollider c = newCol.GetComponent<BoxCollider>();
                     c.center = Vector3.one / 2f;
+
+                    List<Material> mats = q.QuadFaces.Select(f => f.materialChoice).Where(m => m != null).ToList();
+                    if (mats.Count == 0)
+                        BonusMatWallSetup(null, c, null);
+                    else
+                    {
+                        UVSpecification spec = null;
+                        Material mot = null;
+                        foreach (Material mat in mats)
+                        {
+                            mot = mat;
+                            foreach (var vs in q.UVSettings) // get first quad-override uv spec 
+                                if (vs.Face.materialChoice == mat)
+                                {
+                                    spec = vs.uvSpecification;
+                                    break;
+                                }
+                            if (spec == null)
+                                foreach (var vs in UVSettings) // get material based definition 
+                                    if (vs.material == mat)
+                                    {
+                                        spec = vs.uvSpecification;
+                                        break;
+                                    }   
+
+                            if (spec != null)
+                                break;
+                        }
+                        BonusMatWallSetup(spec, c, mot);
+                    }
                 }
             }
             if (CollidersMode == StructureCollidersMode.MaterialUniqueBoxes && BoxColliderHolder != null)
@@ -587,7 +617,8 @@ public class QuadBlock : MonoBehaviour
                         {
                             // maybe do mat process thing for apps that take that
                             invisColGobj.name = $"{mats[0].name} [{UniqueID}]";
-                            BonusMatWallSetup(invisCol, mats[0]);
+                            UVSpecification quadUVOverrides = q.UVSettings?.FirstOrDefault(uvs => uvs.material == mats[0])?.uvSpecification ?? UVSettings?.FirstOrDefault(uvs => uvs.material == mats[0])?.uvSpecification;
+                            BonusMatWallSetup(quadUVOverrides, invisCol, mats[0]);
                         }
                         continue;
                     }
@@ -621,7 +652,8 @@ public class QuadBlock : MonoBehaviour
                         matColT.SetParent(BoxColliderHolder, true);
                         matColT.gameObject.name += $" [{UniqueID}]";
 
-                        BonusMatWallSetup(matCol, f.materialChoice);
+                        UVSpecification quadUVOverrides = q.UVSettings.FirstOrDefault(uvs => uvs.material == f.materialChoice)?.uvSpecification ?? UVSettings.FirstOrDefault(uvs => uvs.material == f.materialChoice)?.uvSpecification;
+                        BonusMatWallSetup(quadUVOverrides, matCol, f.materialChoice);
                     }
                     // center collider
                     {
@@ -705,9 +737,11 @@ public class QuadBlock : MonoBehaviour
             AutoGenLightProbeGroup.probePositions = finProbes.ToArray();
         }
     }
-    private void BonusMatWallSetup(BoxCollider wall, Material mat)
+    private void BonusMatWallSetup(UVSpecification uvs, BoxCollider wall, Material mat)
     {
-
+#if MARROW_SDK
+        MarrowSDKSupport.SetupMaterialWall(uvs, wall);
+#endif
     }
     public bool ContainsPoint(Vector3 point)
     {

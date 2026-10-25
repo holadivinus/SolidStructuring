@@ -418,6 +418,9 @@ public class QuadBlockFace : MonoBehaviour
                     EditSettings = UVDragger.gameObject.AddComponent<UVEditSettings>();
                     EditSettings.Mode = targSpecification.uvSpecification.TextureMode;
                     EditSettings.UniqueUVs = specHolder == QuadBlock;
+#if MARROW_SDK
+                    EditSettings.BonelabSurfaceType.Barcode = targSpecification.uvSpecification.BonelabSurfaceType.Barcode;
+#endif
                 }
             }
         }

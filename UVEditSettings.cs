@@ -3,12 +3,21 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
+#if MARROW_SDK
+using SLZ.Marrow.Warehouse;
+#endif
+
+
 [ExecuteAlways]
 public class UVEditSettings : MonoBehaviour
 {
     public bool Reset; // this should reaaaally just be a button
     public bool UniqueUVs;
     public UVType Mode;
+#if MARROW_SDK
+    [SerializeField]
+    public DataCardReference<SurfaceDataCard> BonelabSurfaceType = new();
+#endif
 
     private void OnEnable()
     {
@@ -50,6 +59,9 @@ public class UVEditSettings : MonoBehaviour
                     newSpec.uvSpecification.Scale = uvSettings.uvSpecification.Scale;
                     newSpec.uvSpecification.TextureMode = uvSettings.uvSpecification.TextureMode;
                     newSpec.uvSpecification.Rotation = uvSettings.uvSpecification.Rotation;
+#if MARROW_SDK
+                    newSpec.uvSpecification.BonelabSurfaceType.Barcode = uvSettings.uvSpecification.BonelabSurfaceType.Barcode;
+#endif
                 }
                 uvSettings = newSpec;
             }
@@ -63,6 +75,9 @@ public class UVEditSettings : MonoBehaviour
         }
 
         uvSettings.uvSpecification.TextureMode = Mode;
+#if MARROW_SDK
+        uvSettings.uvSpecification.BonelabSurfaceType.Barcode = BonelabSurfaceType.Barcode;
+#endif
 
         if (Reset)
         {
@@ -70,6 +85,9 @@ public class UVEditSettings : MonoBehaviour
             uvSettings.uvSpecification.Scale = Vector2.one;
             uvSettings.uvSpecification.Rotation = 0;
             uvSettings.uvSpecification.TextureMode = UVType.Stretched;
+#if MARROW_SDK
+            uvSettings.uvSpecification.BonelabSurfaceType.Barcode = new Barcode("SLZ.Backlot.SurfaceDataCard.Default");
+#endif
 
             Mode = UVType.Stretched;
             
